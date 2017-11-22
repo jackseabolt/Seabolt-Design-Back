@@ -1,7 +1,16 @@
 const express = require('express'); 
 const app = express(); 
+const cors = require('cors'); 
 const bodyParser = require('body-parser'); 
 const jsonParser = bodyParser.json(); 
+
+app.use(function(req, res, next){
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "content-type");
+    res.header("Access-Control-Allows-Methods", "GET, POST"); 
+    next(); 
+})
+
 
 app.post("/contact", jsonParser, (req, res) => {
     var api_key = 'key-f97937bb84680705a55914dad0c93217';
