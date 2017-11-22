@@ -12,11 +12,14 @@ app.post("/contact", jsonParser, (req, res) => {
       from: 'Seabolt Design <postmaster@sandboxc1770a2ad14b4f9ba4de9e6ece502492.mailgun.org>',
       to: 'jackseabolt@gmail.com',
       subject: `Message from ${req.body.name}`,
-      text: 
-        `Name: ${req.body.name} 
+      text:  
+      ` 
+        You have received a new message from SeaboltDesign.com. 
+
+        Name: ${req.body.name} 
         Email: ${req.body.email} 
         Message: 
-        req.body.message`
+        ${req.body.message}`
     };
      
     mailgun.messages().send(data, function (error, body) {
